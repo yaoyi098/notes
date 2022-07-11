@@ -19,7 +19,36 @@ gitea官方提供了各种安装方式。但作为坚定的云原生一员，肯
 
 纠结了一下，最红还是决定用k8s。一是本身打算转行SRE，想考CKA、CKD，提前熟悉环境肯定是有必要的，边玩边学才是最有效率的。二是我打算用K3s，这样服务器资源占用率也不会很高。
 
-### 准备工作
+### 0. 准备工作
 
+- k3s环境建立
+- helm 安装
+- 检查storageclass、ingress。
+  
 参考文档： chart gitea doc
+
+### 1. 添加gitea chart
+
+```shell
+helm repo add gitea-charts https://dl.gitea.io/charts/
+helm install gitea gitea-charts/gitea
+```
+
+### 2. 查看并修改gitea chart 配置
+
+- 查看gitea chart配置：
+
+```shell
+helm show values gitea-charts/gitea 
+```
+
+- 更改gitea chart配置： [charts doc](https://gitea.com/gitea/helm-chart/)
+
+在这里我们需要更改的是：域名，ingress配置（k3s默认安装了traefik Ingress），ssh的lb配置（ssh只能使用LB进行转发），默认用户名和密码，以及其他一些配置。
+
+```yml
+
+```
+
+
 
