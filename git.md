@@ -402,6 +402,7 @@ mariadb:
 - 修改ssh配置，并配置使用`2222`端口。增加LB配置。
 
 ```yaml
+service:
   ssh:
     type: ClusterIP
     port: 2222
