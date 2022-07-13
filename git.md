@@ -406,7 +406,6 @@ service:
   ssh:
     type: ClusterIP
     port: 2222
-    clusterIP: None
     loadBalancerSourceRanges: []
     annotations:
     #TODO： 增加SSH的LB配置。
